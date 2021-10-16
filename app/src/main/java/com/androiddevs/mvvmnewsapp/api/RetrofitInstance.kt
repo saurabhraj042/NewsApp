@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitInstance {
     companion object{
 
-        //Creating singleton Retrofit Instance which will be initialized onlu Once.
+        //Creating singleton Retrofit Instance which will be initialized only Once.
         private val retrofit by lazy {
 
             val logging = HttpLoggingInterceptor()

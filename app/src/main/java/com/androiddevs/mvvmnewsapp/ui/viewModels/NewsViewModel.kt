@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class NewsViewModel(
-    val repository: NewsRepository
+    private val repository: NewsRepository
 ) : ViewModel() {
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
@@ -26,7 +26,7 @@ class NewsViewModel(
         getBreakingNews("in")
     }
 
-    fun getBreakingNews(countryCode : String) = viewModelScope.launch {
+    private fun getBreakingNews(countryCode : String) = viewModelScope.launch {
 
         breakingNews.postValue(Resource.Loading())
         val response = repository.getBreakingNews(countryCode,breakingNewsPage)
